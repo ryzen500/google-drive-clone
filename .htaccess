@@ -1,0 +1,16 @@
+# Enable URL Rewriting
+RewriteEngine On
+
+# Set the RewriteBase if your project is in a subfolder
+# Example: If the project is inside a folder called 'drive-clone'
+# RewriteBase /drive-clone/
+
+# Remove the '.php' extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Redirect to the main index.php for all requests
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php [QSA,L]
