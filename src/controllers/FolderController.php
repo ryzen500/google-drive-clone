@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once '../../config/config.php';
+require_once 'config/config.php';
 
 class FolderController {
     public function createFolder($userId, $name, $parentId = null) {

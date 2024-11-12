@@ -1,7 +1,9 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
-require_once '../controllers/FolderController.php';
-require_once '../controllers/FileController.php';
+require_once 'src/controllers/FolderController.php';
+require_once 'src/controllers/FileController.php';
 
 
 // Check if user is logged in; if not, redirect to login page
@@ -121,7 +123,7 @@ if (isset($_SESSION['user_id'])) {
             <?php if (count($folders) > 0): ?>
                 <?php foreach ($folders as $folder): ?>
                     <div class="col-md-3 mb-4">
-                        <a href="dashboard.php?parent_id=<?php echo $folder['id']; ?>" class="text-decoration-none">
+                        <a href="dashboard?parent_id=<?php echo $folder['id']; ?>" class="text-decoration-none">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <!-- Folder Icon -->

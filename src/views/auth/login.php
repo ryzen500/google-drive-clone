@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
-require_once '../../controllers/AuthController.php';
+require_once 'src/controllers/AuthController.php';
 
 $auth = new AuthController();
 $error = '';
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     if ($auth->login($email, $password)) {
-        header('Location: ../dashboard.php'); // Redirect to dashboard upon successful login
+        header('Location: dashboard'); // Redirect to dashboard upon successful login
         exit();
     } else {
         $error = 'Invalid email or password';
